@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: discord-kartrider
-Version: 0.3
+Version: 1.0.1
 Summary: 넥슨 API, 카트라이더 TMI, BAZZI를 이용한 크롤링(디스코드 용)
 Home-page: https://github.com/chunjoonseo541/discord-kartrider
 Author: joonseo7397
@@ -29,7 +29,7 @@ pip install discord-kartrider
 # 사용법
 ```
 from nextcord.ext import commands
-import discord_kartrider as kart
+from discord_kartrider import kartrider as kart
 
 bot = commands.Bot(command_prefix'YOUR_PREFIX')
 

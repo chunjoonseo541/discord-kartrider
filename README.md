@@ -14,7 +14,7 @@ pip install discord-kartrider
 # 사용법
 ```
 from nextcord.ext import commands
-import discord_kartrider as kart
+from discord_kartrider import kartrider as kart
 
 bot = commands.Bot(command_prefix'YOUR_PREFIX')
 
