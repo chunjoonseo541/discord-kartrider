@@ -20,7 +20,7 @@ async def kartrideruser(ctx, api_key, url, name):
     many_track = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="app"]/main/div/div/div[3]/div[2]/div/div/div[3]/div/p[2]'))).text
     many_drive = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="app"]/main/div/div/div[3]/div[2]/div/div/div[4]/div/p[2]'))).text
     winningrate = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="app"]/main/div/div/div[3]/div[2]/div/div/div[1]/div/p[2]'))).text
-    winner = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="app"]/main/div/div/div[3]/div[2]/div/div/div[1]/div/p[3]/span[1]'))).text
+    winner=WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="app"]/main/div/div/div[3]/div[2]/div/div/div[1]/div/p[3]/span[1]'))).text
     loseing=WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="app"]/main/div/div/div[3]/div[2]/div/div/div[1]/div/p[3]/span[2]'))).text
     licensestext=WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="app"]/main/div/div/div[1]/nav/div/div[2]/div/div[2]/span'))).text
     driver.quit()
