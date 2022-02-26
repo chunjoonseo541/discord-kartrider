@@ -5,7 +5,7 @@ from selenium import webdriver
 import nextcord, requests, re
 
 async def kartrideruser(ctx, api_key, url, name):
-    respone = requests.get(f"https://api.nexon.co.kr/kart/v1.0/users/nickname/준서1230", headers={'Authorization': api_key})
+    respone = requests.get(f"https://api.nexon.co.kr/kart/v1.0/users/nickname/{name}", headers={'Authorization': api_key})
     ids = respone.json()["accessId"]
     level = respone.json()["level"]
     chrome_options = webdriver.ChromeOptions()
