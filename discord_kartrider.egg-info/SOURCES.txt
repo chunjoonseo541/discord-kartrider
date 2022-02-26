@@ -1,0 +1,8 @@
+README.md
+setup.py
+discord_kartrider/kartrider.py
+discord_kartrider.egg-info/PKG-INFO
+discord_kartrider.egg-info/SOURCES.txt
+discord_kartrider.egg-info/dependency_links.txt
+discord_kartrider.egg-info/requires.txt
+discord_kartrider.egg-info/top_level.txt
