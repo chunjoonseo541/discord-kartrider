@@ -5,10 +5,12 @@ from selenium import webdriver
 import nextcord, requests, re
 
 async def kartideruser(ctx, api_key, name, file=None):
+    options = webdriver.ChromeOptions()
+    options.add_argument("--headless")
     if file==None:
-        driver = webdriver.Chrome(options=webdriver.ChromeOptions().add_argument("--headless"))
-        return
-    driver = webdriver.Chrome(file, options=webdriver.ChromeOptions().add_argument("--headless"))
+        driver = webdriver.Chrome(options=options)
+    else:
+        driver = webdriver.Chrome(file, options=options)
     driver.get(f"https://bazzi.gg/rider/{name}")
     ranking = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="app"]/main/div/div/div[3]/div[2]/div/div/div[2]/div/p[2]'))).text
     many_track = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="app"]/main/div/div/div[3]/div[2]/div/div/div[3]/div/p[2]'))).text
