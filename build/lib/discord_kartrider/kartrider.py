@@ -19,9 +19,9 @@ async def kartideruser(ctx, api_key, file, name):
     ranking = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="app"]/main/div/div/div[3]/div[2]/div/div/div[2]/div/p[2]'))).text
     many_track = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="app"]/main/div/div/div[3]/div[2]/div/div/div[3]/div/p[2]'))).text
     many_drive = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="app"]/main/div/div/div[3]/div[2]/div/div/div[4]/div/p[2]'))).text
-    winningrate = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="app"]/main/div/div/div[3]/div[2]/div/div/div[1]/div/p[2]'))).text
-    winner = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="app"]/main/div/div/div[3]/div[2]/div/div/div[1]/div/p[3]/span[1]'))).text
-    loseing = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="app"]/main/div/div/div[3]/div[2]/div/div/div[1]/div/p[3]/span[2]'))).text
+    winningrate=WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="app"]/main/div/div/div[3]/div[2]/div/div/div[1]/div/p[2]'))).text
+    winner=WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="app"]/main/div/div/div[3]/div[2]/div/div/div[1]/div/p[3]/span[1]'))).text
+    loseing=WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="app"]/main/div/div/div[3]/div[2]/div/div/div[1]/div/p[3]/span[2]'))).text
     licensestext=WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="app"]/main/div/div/div[1]/nav/div/div[2]/div/div[2]/span'))).text
     driver.quit()
     embed = nextcord.Embed(title="카트 유저검색",description=f"{name}님의 라이더 정보", color=0x00FFFF)
