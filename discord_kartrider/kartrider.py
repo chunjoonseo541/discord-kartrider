@@ -4,17 +4,11 @@ from selenium.webdriver.common.by import By
 from selenium import webdriver
 import nextcord, requests, re
 
-async def kartrideruser(ctx, api_key, url, name):
-    respone = requests.get(f"https://api.nexon.co.kr/kart/v1.0/users/nickname/{name}", headers={'Authorization': api_key})
-    ids = respone.json()["accessId"]
-    level = respone.json()["level"]
-    chrome_options = webdriver.ChromeOptions()
-    chrome_options.add_argument("--headless")
-    driver = webdriver.Chrome(url, options=chrome_options)
-    driver.get(f"https://tmi.nexon.com/kart/user?nick={name}")
-    WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="inner"]/div[1]/div[2]/div[2]/div[2]/span[1]'))).click()
-    licenses = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="inner"]/div[1]/div[2]/div[2]/h1/span'))).value_of_css_property("background-image")
-    image = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="inner"]/div[1]/div[2]/div[1]/img'))).get_attribute('src')
+async def kartideruser(ctx, api_key, name, file=None):
+    if file==None:
+        driver = webdriver.Chrome(options=webdriver.ChromeOptions().add_argument("--headless"))
+        return
+    driver = webdriver.Chrome(file, options=webdriver.ChromeOptions().add_argument("--headless"))
     driver.get(f"https://bazzi.gg/rider/{name}")
     ranking = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="app"]/main/div/div/div[3]/div[2]/div/div/div[2]/div/p[2]'))).text
     many_track = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="app"]/main/div/div/div[3]/div[2]/div/div/div[3]/div/p[2]'))).text
@@ -23,6 +17,13 @@ async def kartrideruser(ctx, api_key, url, name):
     winner = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="app"]/main/div/div/div[3]/div[2]/div/div/div[1]/div/p[3]/span[1]'))).text
     loseing = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="app"]/main/div/div/div[3]/div[2]/div/div/div[1]/div/p[3]/span[2]'))).text
     licensestext=WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="app"]/main/div/div/div[1]/nav/div/div[2]/div/div[2]/span'))).text
+    respone = requests.get(f"https://api.nexon.co.kr/kart/v1.0/users/nickname/{name}", headers={'Authorization': api_key})
+    ids = respone.json()["accessId"]
+    level = respone.json()["level"]
+    driver.get(f"https://tmi.nexon.com/kart/user?nick={name}")
+    WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="inner"]/div[1]/div[2]/div[2]/div[2]/span[1]'))).click()
+    licenses = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="inner"]/div[1]/div[2]/div[2]/h1/span'))).value_of_css_property("background-image")
+    image = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="inner"]/div[1]/div[2]/div[1]/img'))).get_attribute('src')
     driver.quit()
     embed = nextcord.Embed(title="카트 유저검색",description=f"{name}님의 라이더 정보", color=0x00FFFF)
     embed.add_field(name="고유 ID", value=ids, inline=True)
@@ -36,3 +37,6 @@ async def kartrideruser(ctx, api_key, url, name):
     embed.set_footer(text='Made in ! Chives F541(준서)#5090.', icon_url='https://cdn.discordapp.com/avatars/726048454245351534/752a3e938bb363d2472b9ec56bf9cb23.png?size=128')
     embed.set_image(url=image)
     await ctx.send(embed=embed)
+
+# async def kartridertrack(ctx, api_key, name):
+#     respone = f""

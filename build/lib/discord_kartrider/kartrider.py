@@ -4,13 +4,13 @@ from selenium.webdriver.common.by import By
 from selenium import webdriver
 import nextcord, requests, re
 
-async def kartrideruser(ctx, api_key, url, name):
+async def kartideruser(ctx, api_key, file, name):
     respone = requests.get(f"https://api.nexon.co.kr/kart/v1.0/users/nickname/{name}", headers={'Authorization': api_key})
     ids = respone.json()["accessId"]
     level = respone.json()["level"]
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument("--headless")
-    driver = webdriver.Chrome(url, options=chrome_options)
+    driver = webdriver.Chrome(file, options=chrome_options)
     driver.get(f"https://tmi.nexon.com/kart/user?nick={name}")
     WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="inner"]/div[1]/div[2]/div[2]/div[2]/span[1]'))).click()
     licenses = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="inner"]/div[1]/div[2]/div[2]/h1/span'))).value_of_css_property("background-image")
