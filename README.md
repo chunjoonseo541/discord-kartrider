@@ -33,8 +33,18 @@ from discord_kartrider import kartrider as kart
 
 bot = commands.Bot(command_prefix='YOUR_FREFIX')
 
+def load_chrome_driver():
+        options = webdriver.ChromeOptions()
+        options.binary_location = os.getenv('GOOGLE_CHROME_BIN')
+        options.add_argument('--headless')
+        options.add_argument('--disable-gpu')
+        options.add_argument('--no-sandbox')
+
+        return webdriver.Chrome(executable_path=str(os.environ.get('CHROME_EXECUTABLE_PATH')), chrome_options=options)
+
 @bot.command()
 async def 카트유저(ctx, name):
+    load_chrome_driver()
     await kart.kartrideruser(ctx, nexon_api, name, discord_module)
 
 bot.run("YOUR_TOKEN_HERE")
