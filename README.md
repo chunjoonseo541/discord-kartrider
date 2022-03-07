@@ -12,12 +12,26 @@
 pip install discord-kartrider
 ```
 
-# 사용법
-```
+# 사용법(localhost)
+```python
 from nextcord.ext import commands
 from discord_kartrider import kartrider as kart
 
 bot = commands.Bot(command_prefix='YOUR_PREFIX')
+
+@bot.command()
+async def 카트유저(ctx, name):
+    await kart.kartrideruser(ctx, nexon_api, name, chromedriver_link, discord_module)
+
+bot.run("YOUR_TOKEN_HERE")
+```
+
+# 사용법(Heroku)
+```python
+from nextcord.ext import commands
+from discord_kartrider import kartrider as kart
+
+bot = commands.Bot(command_prefix='YOUR_FREFIX')
 
 @bot.command()
 async def 카트유저(ctx, name):
