@@ -5,7 +5,7 @@ with open('README.md', encoding='utf-8') as f:
 
 setup(name='discord_kartrider', # 패키지 명
 
-    version='1.0.4',
+    version='1.0.5',
 
     long_description = long_description,
 
@@ -29,5 +29,5 @@ setup(name='discord_kartrider', # 패키지 명
 
     packages=['discord_kartrider'], # 패키지가 들어있는 폴더들
 
-    classifiers = ['Programming Language :: Python :: 3.8', 'Programming Language :: Python :: 3.9', 'Programming Language :: Python :: 3.10'],
+    classifiers = ['Programming Language :: Python :: 3.5','Programming Language :: Python :: 3.6','Programming Language :: Python :: 3.7','Programming Language :: Python :: 3.8', 'Programming Language :: Python :: 3.9', 'Programming Language :: Python :: 3.10'],
 )

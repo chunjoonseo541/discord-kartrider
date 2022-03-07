@@ -1,1 +1,1 @@
-__all__ = ['discord_kartrider']
+__all__=['discord_kartrider']
