@@ -5,7 +5,7 @@ with open('README.md', encoding='utf-8') as f:
 
 setup(name='discord_kartrider', # 패키지 명
 
-    version='1.0.5',
+    version='1.0.5.1',
 
     long_description = long_description,
 
