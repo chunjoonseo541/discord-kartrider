@@ -5,7 +5,7 @@ with open('README.md', encoding='utf-8') as f:
 
 setup(name='discord_kartrider', # 패키지 명
 
-    version='1.0.5.3a3',
+    version='1.0.6',
 
     long_description = long_description,
 
@@ -31,3 +31,9 @@ setup(name='discord_kartrider', # 패키지 명
 
     classifiers = ['Programming Language :: Python :: 3.5','Programming Language :: Python :: 3.6','Programming Language :: Python :: 3.7','Programming Language :: Python :: 3.8', 'Programming Language :: Python :: 3.9', 'Programming Language :: Python :: 3.10'],
 )
+
+# pip install wheel && pip install twine
+
+# python setup.py bdist_wheel
+
+# twine upload dist/
