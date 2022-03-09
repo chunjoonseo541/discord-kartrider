@@ -21,7 +21,7 @@ bot = commands.Bot(command_prefix='YOUR_PREFIX')
 
 @bot.event
 async def on_ready():
-    kart.kartrider.reload_file # 메치 파일 업데이트
+    kart.kartrider.reload_file() # 메치 파일 업데이트
 
 @bot.command()
 async def 카트유저(ctx, name):

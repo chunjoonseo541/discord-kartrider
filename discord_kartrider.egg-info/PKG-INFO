@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: discord-kartrider
-Version: 1.0.6
+Version: 1.0.6.1
 Summary: 넥슨 API, BAZZI를 이용한 크롤링
 Home-page: https://github.com/chunjoonseo541/discord-kartrider
 Author: joonseo7397
@@ -29,7 +29,7 @@ Description: # discord-kartrider
         
         @bot.event
         async def on_ready():
-            kart.kartrider.reload_file # 메치 파일 업데이트
+            kart.kartrider.reload_file() # 메치 파일 업데이트
         
         @bot.command()
         async def 카트유저(ctx, name):
