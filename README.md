@@ -12,40 +12,21 @@
 pip install discord-kartrider
 ```
 
-# 사용법(localhost)
+# 사용법
 ```py
-from nextcord.ext import commands
+from discord.ext import commands
 from discord_kartrider import kartrider as kart
 
 bot = commands.Bot(command_prefix='YOUR_PREFIX')
 
 @bot.command()
 async def 카트유저(ctx, name):
-    await kart.kartrideruser(ctx, nexon_api, name, chromedriver_link, discord_module)
-
-bot.run("YOUR_TOKEN_HERE")
-```
-
-# 사용법(Heroku)
-```python
-from nextcord.ext import commands
-from discord_kartrider import kartrider as kart
-
-bot = commands.Bot(command_prefix='YOUR_FREFIX')
-
-def load_chrome_driver():
-        options = webdriver.ChromeOptions()
-        options.binary_location = os.getenv('GOOGLE_CHROME_BIN')
-        options.add_argument('--headless')
-        options.add_argument('--disable-gpu')
-        options.add_argument('--no-sandbox')
-
-        return webdriver.Chrome(executable_path=str(os.environ.get('CHROME_EXECUTABLE_PATH')), chrome_options=options)
-
-@bot.command()
-async def 카트유저(ctx, name):
-    load_chrome_driver()
-    await kart.kartrideruser(ctx, nexon_api, name, discord_module)
+    id = kart.kartrider.id(name, API_KEY) # 유저의 ID가져오기
+    level = kart.kartrider.level(name, API_KEY) # 유저의 level가져오기
+    character_url = kart.kartrider.character_url(name) # 유저의 캐릭터 이미지 링크 가져오기
+    license_text = kart.kartrider.license_text(name) # 유저의 캐릭터 텍스트 가져오기
+    license_url = kart.kartrider.license_url(name) # 유저의 라이센스 이미지 링크 가져오기
+    print(f"{id}{level}{character_url}{license_text}{license_url}")
 
 bot.run("YOUR_TOKEN_HERE")
 ```
